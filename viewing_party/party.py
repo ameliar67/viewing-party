@@ -79,11 +79,11 @@ def get_most_watched_genre(user_data):
 def get_unique_watched(user_data):
 
     movies_friends_havent_watched = []
-    titles_friends_have_watched = {}
+    titles_friends_have_watched = set()
 
     for friend in user_data['friends']:
         for movie in friend['watched']:
-            titles_friends_have_watched[movie[KEY_MOVIE_TITLE]] = 1
+            titles_friends_have_watched.add(movie[KEY_MOVIE_TITLE])
             
     for movie in user_data['watched']:   
         if movie[KEY_MOVIE_TITLE] not in titles_friends_have_watched:
