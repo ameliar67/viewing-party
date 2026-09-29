@@ -129,15 +129,13 @@ def get_new_rec_by_genre(user_data):
         return recommendations
 
     popular_genre = get_most_watched_genre(user_data)
+    friends_unique_movies = get_friends_unique_watched(user_data)
 
-    for friend in user_data["friends"]:
-        for movie in friend["watched"]:
-            if (
-                movie not in user_data["watched"]
-                and movie[KEY_MOVIE_GENRE] == popular_genre
-                and movie not in recommendations
-            ):
-                recommendations.append(movie)
+    for movie in friends_unique_movies:
+        if (movie[KEY_MOVIE_GENRE] == popular_genre
+            and movie not in recommendations
+        ):
+            recommendations.append(movie)
 
     return recommendations
 
