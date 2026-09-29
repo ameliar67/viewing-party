@@ -109,9 +109,9 @@ def get_friends_unique_watched(user_data):
 def get_available_recs(user_data):
     recommendations = []
 
-    unique = get_friends_unique_watched(user_data)
+    friends_unique_watched = get_friends_unique_watched(user_data)
 
-    for movie in unique:
+    for movie in friends_unique_watched:
         if movie['host'] in user_data["subscriptions"]:
             recommendations.append(movie)
 
