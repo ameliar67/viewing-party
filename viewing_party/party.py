@@ -41,7 +41,7 @@ def get_watched_avg_rating(user_data):
     total_rating = 0.0
 
     watched_movies = user_data['watched']
-    if len(watched_movies) == 0:
+    if not watched_movies:
         return 0.0
 
     for movie in watched_movies:
