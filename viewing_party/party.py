@@ -65,9 +65,9 @@ def get_most_watched_genre(user_data):
     current_highest_genre = ''
     current_highest_genre_count = 0
 
-    for genre in genres.keys():
-        if genres[genre] > current_highest_genre_count:
-            current_highest_genre_count = genres[genre]
+    for genre, count in genres.items():
+        if count > current_highest_genre_count:
+            current_highest_genre_count = count
             current_highest_genre = genre
 
     return current_highest_genre 
