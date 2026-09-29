@@ -45,7 +45,7 @@ def get_watched_avg_rating(user_data):
         return 0.0
 
     for movie in watched_movies:
-        total_rating+=movie[KEY_MOVIE_RATING]
+        total_rating += movie[KEY_MOVIE_RATING]
 
     return total_rating / len(user_data['watched'])
 
