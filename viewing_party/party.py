@@ -51,18 +51,19 @@ def get_watched_avg_rating(user_data):
 
 def get_most_watched_genre(user_data):
 
-    genres = {}
-    current_highest_genre = ''
-    current_highest_genre_count = 0
-
     if len(user_data["watched"]) == 0:
         return None
 
+    genres = {}
+
     for movie in user_data["watched"]:
         if movie[KEY_MOVIE_GENRE] in genres:
-            genres[movie[KEY_MOVIE_GENRE]]+=1
+            genres[movie[KEY_MOVIE_GENRE]] += 1
         else:
             genres[movie[KEY_MOVIE_GENRE]] = 1
+
+    current_highest_genre = ''
+    current_highest_genre_count = 0
 
     for genre in genres.keys():
         if genres[genre] > current_highest_genre_count:
